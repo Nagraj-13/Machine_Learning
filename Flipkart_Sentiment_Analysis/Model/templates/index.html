@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0c1829; /* Navy blue background */
+            font-family: 'Courier New', Courier, monospace;
+            color: #d4d4d4;
+        }
+
+        .container {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.1); /* Glass morphism effect */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Thin border */
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Glass morphism shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-bottom: 50px;
+            box-shadow: 4px 4px #040b14;
+        }
+
+        .terminal-lights {
+            display: flex;
+            gap: 7px;
+            width: 100%;
+            justify-content: flex-start; /* Align the circles to the left */
+        }
+
+        .terminal-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #FF5F56; /* Red */
+            box-shadow: 0 0 0 1px #FF5F56; /* Border */
+            position: relative;
+        }
+
+        .yellow {
+            background-color: #FFD32A; /* Yellow */
+            box-shadow: 0 0 0 1px #FFD32A; /* Border */
+        }
+
+        .green {
+            background-color: #27AE60; 
+            box-shadow: 0 0 0 1px #27AE60; 
+        }
+
+        .heading {
+            color: #d4d4d4;
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: calc(100% - 40px); 
+            padding: 8px;
+            border: 2px solid #3a536b; 
+            border-radius: 5px;
+            background-color: #14263f; 
+            color: #d4d4d4; 
+            margin-bottom: 10px;
+            box-shadow: 5px 5px #040b14;
+        }
+
+        button[type="submit"] {
+            --font-color: #fefefe;
+            --bg-color: #14263f;
+            --main-color: #040b14;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 2px solid #3a536b;
+            background-color: var(--bg-color);
+            box-shadow: 5px 5px var(--main-color);
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow .2s ;
+            font-family: 'Courier New', Courier, monospace;
+            color: #d4d4d4;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #14263f;
+            color: #d4d4d4; 
+        }
+         button[type="submit"]:active{
+            box-shadow: 0 0 0;
+            transform: translateX(4px) translateY(4px);
+        }
+        hr {
+            width: 100%;
+            border: 0;
+            height: 1px;
+            background-color: #444; /* Dark gray */
+            margin: 20px 0;
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        
+            input[type="text"],
+            textarea {
+                width: calc(100% - 20px); 
+            }
+        }
+        
+        @media screen and (max-width: 380px) {
+      
+            .container {
+                width: 85%;
+            }
+        
+            input[type="text"],
+            textarea {
+                width: calc(100% - 10px); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="terminal-lights">
+            <div class="terminal-circle"></div>
+            <div class="line"></div>
+            <div class="terminal-circle yellow"></div>
+            <div class="line"></div>
+            <div class="terminal-circle green"></div>
+        </div>
+        <hr/>
+        <h1 class="heading">Sentiment Analysis</h1>
+        <form action="/predict" method="post">
+            <textarea name="review_text" rows="4" cols="50" placeholder="Enter your review here..."></textarea><br>
+            <button type="submit" class="button">Check  Sentiments!</button>
+        </form>
+    </div>
+</body>
+</html>
